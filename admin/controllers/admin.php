@@ -23,7 +23,7 @@ switch($action) {
             include('view/login.php');
         }
         break;
-    case 'logout':
+    case 'register':
         include('util/valid_register.php');
         valid_registration($username, $password, $confirm_password);
         if($errors) {

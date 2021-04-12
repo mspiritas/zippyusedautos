@@ -29,12 +29,16 @@ function is_valid_admin_login($username, $password) {
 function username_exists($username) {
     global $db;
     $result = $statement->fetchColumn();
+    $username = $_POST['username'];
     $query = "SELECT COUNT(*)
               FROM administrators
-              WHERE username = 'username'";
-    if ($result) {
-        return $result;
+              WHERE username = '$username'";
+    if ($query) > 0 {
+        echo "Username already exists.";
+        return TRUE;
     } else {
+        'INSERT INTO administators(password, username)
+         VALUES('$_POST['password']', '$_POST['username']');'
         return FALSE;
     }
     $statement = $db->prepare($query);
@@ -42,6 +46,7 @@ function username_exists($username) {
     $makes = $statement->fetch();
     $statement->closeCursor();
     return $username;
+    echo $query;
 }
 
 ?>
