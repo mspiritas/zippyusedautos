@@ -33,12 +33,13 @@ function username_exists($username) {
     $query = "SELECT COUNT(*)
               FROM administrators
               WHERE username = '$username'";
-    if ($query) > 0 {
+    // if ($query) > 0 {
+    if ($query) {
         echo "Username already exists.";
         return TRUE;
     } else {
-        'INSERT INTO administators(password, username)
-         VALUES('$_POST['password']', '$_POST['username']');'
+        //'INSERT INTO administators(password, username)
+        // VALUES('$_POST['password']', '$_POST['username']');'
         return FALSE;
     }
     $statement = $db->prepare($query);

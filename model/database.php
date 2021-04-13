@@ -1,14 +1,19 @@
 <?php
+    //local development server connection
+    $dsn = 'mysql:host=localhost;dbname=zippyusedautos';
+    $username = 'root';
+    //$password = 'pa55word';
+
     // Heroku connection
-    
-    $dsn = 'mysql:host=vkh7buea61avxg07.cbetxkdyhwsb.us-east-1.rds.amazonaws.com;dbname=pl56lrjwtahad29s';
-    $username = 'zafrlwly99j4w8o6';
-    $password = 'o2h9qa7wjhonwn5g';
+    /* 
+    $dsn = 'mysql:host=AVeryLongURLprovidedforJawsDBhost;dbname=YourJawsDBdbname';
+    $username = 'Your JawsDB username';
+    $password = 'Your JawsDB password'; */
     
     try {
         //local development server connection
         //if using a $password, add it as 3rd parameter
-        $db = new PDO($dsn, $username, $password);
+        $db = new PDO($dsn, $username);
 
         // Heroku connection
         //$db = new PDO($dsn, $username, $password);
