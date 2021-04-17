@@ -10,7 +10,7 @@ class MakeDB {
         return $makes;
     }
 
-    public static unction get_make_name($make_id) {
+    public static function get_make_name($make_id) {
         $db = Database::getDB();
         $query = 'SELECT * FROM makes WHERE ID = :make_id';
         $statement = $db->prepare($query);
