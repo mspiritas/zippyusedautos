@@ -13,9 +13,9 @@ switch($action) {
         include('view/login.php');
         break;    
     case 'login':
-        is_valid_login($username, $password);
-        if(is_valid_login($username, $password)) {
-            $_SESSION['is_valid_login'] = true;
+        AdminDB::is_valid_admin_login($username, $password);
+        if(is_valid_admin_login($username, $password)) {
+            $_SESSION['is_valid_admin_login'] = true;
             session_start();
             header("Location: .?action=list_vehicles");
         } else {
@@ -26,10 +26,13 @@ switch($action) {
     case 'register':
         include('util/valid_register.php');
         valid_registration($username, $password, $confirm_password);
+        if (AdminDB::username_exists($username)) {
+            array_push($errors, "The username you entered is already taken.");
+        }
         if($errors) {
             include('view/register.php');
         } else {
-            add_admin();
+            AdminDB::add_admin();
             $_SESSION['is_valid_admin'] = true;
             session_start();
             header("Location: .?action=list_vehicles");

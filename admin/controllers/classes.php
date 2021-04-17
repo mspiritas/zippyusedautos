@@ -1,4 +1,4 @@
-<?php 
+<?php
     switch($action) {
         case 'add_class':
             add_class($class_name);

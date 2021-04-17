@@ -1,6 +1,8 @@
 <?php
 
-function add_admin($username, $password) {
+class AdminDB {
+
+public static function add_admin($username, $password) {
     global $db;
     $hash = password_hash($password, PASSWORD_DEFAULT);
     $query = 'INSERT INTO administrators (username, password)
@@ -12,7 +14,7 @@ function add_admin($username, $password) {
     $statement->closeCursor();
 }
 
-function is_valid_admin_login($username, $password) {
+public static function is_valid_admin_login($username, $password) {
     global $db;
     $query = 'SELECT password FROM administrators
               WHERE username = :username';
@@ -26,7 +28,7 @@ function is_valid_admin_login($username, $password) {
     return password_verify($password, $hash);
 }
 
-function username_exists($username) {
+public static function username_exists($username) {
     global $db;
     $result = $statement->fetchColumn();
     $username = $_POST['username'];
@@ -49,5 +51,5 @@ function username_exists($username) {
     return $username;
     echo $query;
 }
-
+}
 ?>
