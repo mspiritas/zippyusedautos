@@ -1,8 +1,8 @@
 <?php 
 class Database {
-    private static $dsn = 'mysql:host=vkh7buea61avxg07.cbetxkdyhwsb.us-east-1.rds.amazonaws.com;dbname=pl56lrjwtahad29s';
-    private static $username = 'zafrlwly99j4w8o6';
-    private static $password = 'o2h9qa7wjhonwn5g';
+    private static $dsn = 'mysql:host=u6354r3es4optspf.cbetxkdyhwsb.us-east-1.rds.amazonaws.com;dbname=qw4jhu9eabl5fylr';
+    private static $username = 'u85hscwnekp764ms';
+    private static $password = 'sp3904ooltuwai30';
     private static $db;
 
     private function __construct() {}
